@@ -22,11 +22,11 @@ class _WeatherSState extends State<WeatherS> {
     getCurrentWeather();
   }
 
-  Future getCurrentWeather() async {
+  Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
       String cityname = 'London';
       final res = await http.get(Uri.parse(
-        'https://api.openweathermap.org/data/2.5/forecast?q=$cityname,uk&APPID=fa17f46bcd501457404548104c40adca',
+        'https://api.openweathermap.org/data/2.5/forecast?q=$cityname,uk&APPID=$weatherAPIKEY',
       ));
 
       final data = jsonDecode(res.body);
